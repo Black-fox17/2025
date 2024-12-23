@@ -1,0 +1,9 @@
+!function ($) {
+  // custom translation
+  _insideGraph.defer(function () {
+    const t = insideFrontInterface.labelTranslations.translations;
+    if (insideFrontInterface.language === 'it') {
+      t['Are you sure you want to end this chat?'] = 'Conferma di voler chiudere questa chat?';
+    }
+  }, function () { return insideFrontInterface.languageTranslationsLoaded });
+}(_insideGraph.jQuery);
