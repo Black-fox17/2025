@@ -13,3 +13,6 @@ import './bootstrap';
  */
 
 import './components/Example';
+import './components/signup';
+import './components/home';
+import './components/signin';
