@@ -221,6 +221,37 @@ h2{
     color: #333;
     font-weight: bold;
 }
+.input-password{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    background-color: #f3f0eb;
+    width: 53%;
+    border-radius: 5px;
+}
+.input-password img{
+    width:25px;
+    cursor: pointer;
+}
+#password{
+    width: 100%;
+    padding: 2px;
+    margin: 10px 0;
+    border: 0;  
+    outline: 0;
+    background-color: #f3f0eb;
+
+}
+#password-confirm{
+    width: 100%;
+    padding: 2px;
+    margin: 10px 0;
+    border: 0;  
+    outline: 0;
+    background-color: #f3f0eb;
+}
+  
 @media screen and (max-width: 768px) {
     .navbar{
         display: flex;

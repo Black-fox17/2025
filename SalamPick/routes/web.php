@@ -8,11 +8,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'showSignUpForm'])->name('signup');
+Route::post('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('signup_post');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/signup', function () {
-    return view('signup'); // Matches resources/views/signup.blade.php
-})->name('signup');
 
 Route::get('/signin', function () {
     return view('signin'); // Matches resources/views/signin.blade.php
