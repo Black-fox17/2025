@@ -146,6 +146,11 @@ h2{
     color: #9d5248;
     text-decoration: none;
 }
+.dropdown-item{
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
 .intro{
     display: block;
     font-family: "Optima", sans-serif;
@@ -363,6 +368,89 @@ h2{
     object-fit: cover;
 }
 
+#searchbox {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+.user-icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; 
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px; /* Adjust based on your layout */
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 8px 16px;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #9d5248;
+}
+
+.dropdown-menu ul li a:hover {
+    color: #007bff;
+    background-color: #f3f0eb;
+}
+
+/* Show the dropdown when hovering over the icon */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.form-check{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.form-check-input{
+    cursor: pointer;
+}
+
+.form-group a{
+    color: #007bff;
+    text-decoration: none;
+}
+.form-group a:hover{
+    transition: ease-in-out;
+    color: #0056b3;
+}
+.sidebar{
+    display: block;
+}
+/* .forgot{
+    color: #9d5248;
+    text-decoration: none;
+}  */
 @media screen and (max-width: 768px) {
     .navbar{
         display: flex;

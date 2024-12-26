@@ -33,6 +33,13 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
+                <div class = "form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                    <label class="form-check-label" for="remember">
+                        Remember Me
+                    </label>
+                </div>
                 <button type="submit" id="submit">Login</button>
                 @if (Route::has('password.request'))
                     <a class="forgot" href="{{ route('password.request') }}">

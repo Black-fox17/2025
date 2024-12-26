@@ -24,8 +24,30 @@
                 </div>
             </div>
         @else
-            <div class="auth">
-                <h4 class = "profile-username">{{ Auth::user()->name }}</h1>
+        <div class = "sidebar">
+            <div class="dropdown">
+                <div class = "dropdown-icon">
+                    <img src="icons/account.svg" alt="User Icon" class="user-icon">
+                </div>
+                <div class = "dropdown-menu">
+                    <ul>
+                        <li><p class = "profile-username"> Welcome, {{ Auth::user()->username }}</p></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            Logout
+                        </a></li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </ul>
+                </div>
+                <div class="cart">
+                    <a href="#">
+                        <img src="icons/cart.svg" alt="Cart Icon" class="user-icon">
+                    </a>
+                </div>
             </div>
         @endguest
     </header>
@@ -42,49 +64,6 @@
         <h2 id = "section">Choose a section to navigate!</h3>
     </div>
     <nav class="navbar">
-        <!-- <style>
-            .navbar {
-                position: relative;
-                display: flex;
-                justify-content: center;
-                background-color: #333;
-            }
-            .navbar ul {
-                display: flex;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .navbar li {
-                position: relative;
-            }
-            .navbar a {
-                display: block;
-                padding: 15px 20px;
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-            .navbar a:hover {
-                color: #ff6347;
-            }
-            .navbar::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: #ff6347;
-                transition: width 0.3s, left 0.3s;
-            }
-            .navbar li:hover::before {
-                width: 100%;
-            }
-            .navbar li:hover ~ li::before {
-                left: 100%;
-            }
-        </style> -->
         <ul>
             <li><a href="#fashion">Fashion</a></li>
             <li><a href="#tech">Tech Pieces</a></li>
