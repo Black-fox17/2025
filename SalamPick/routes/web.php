@@ -23,6 +23,6 @@ Route::get('/profile/{user}', [App\Http\Controllers\MainController::class, 'inde
 
 Route::get('/products', [ProductController::class, 'showProducts']);
 
-Route::get('/welcome', function () {
-    return view('welcome'); 
-})->name('welcome');
+Route::get('/product-page', function () {
+    return view('product-page'); 
+})->name('product-page');
