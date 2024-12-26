@@ -96,7 +96,7 @@
         <h2>Fashion</h2>
         <div class="products">
             <div class="product">
-                <img src="products/sneaker.webp" alt="Product 1">
+                <img src="images/sneaker.webp" alt="Product 1">
                 <h3>Bouncing Sneaker</h3>
                 <p class="price">$970       </p>
             </div>

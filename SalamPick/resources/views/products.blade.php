@@ -7,22 +7,19 @@
     <link rel="stylesheet" href="stylesheet/styles.css"> <!-- Add custom CSS if needed -->
 </head>
 <body>
-    <div class="container">
+    <div class="fas-container">
         <h1>Fashion Products</h1>
-        <div class="row">
+        <div class="products">
             @foreach($products as $product)
-                <div class="col-md-4">
+                <div class="product">
                     <div class="card mb-4">
-                    <img 
-                        src="{{ $product['image_url'] ?? '/images/default.jpg' }}" 
-                        class="card-img-top" 
-                        alt="{{ $product['name'] ?? 'Product Image' }}">
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product['name'] }}</h5>
+                        <img 
+                            src="{{ asset($product['image_url']) }}" 
+                            class="card-img-top" 
+                            alt="{{ $product['name'] ?? 'Product Image' }}">
+                            <h3 >{{ $product['name'] }}</h5>
                             <p class="card-text">{{ $product['description'] }}</p>
-                            <p class="card-text"><strong>${{ number_format($product['price'], 2) }}</strong></p>
-                        </div>
+                            <p class="price">${{ number_format($product['price'], 2) }}</p>
                     </div>
                 </div>
             @endforeach
