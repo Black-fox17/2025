@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('main');
@@ -18,6 +20,8 @@ Route::get('/profile',function(){
     return view('profile-create');
 })->name('profile');
 Route::get('/profile/{user}', [App\Http\Controllers\MainController::class, 'index'])->name('profile.show');
+
+Route::get('/products', [ProductController::class, 'showProducts']);
 
 Route::get('/welcome', function () {
     return view('welcome'); 
