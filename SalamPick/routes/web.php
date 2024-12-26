@@ -11,13 +11,14 @@ Auth::routes();
 Route::get('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'showSignUpForm'])->name('signup');
 Route::post('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('signup_post');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/signin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('signin');
+Route::post('/signin', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('signin_post');
 
-
-Route::get('/signin', function () {
-    return view('signin'); // Matches resources/views/signin.blade.php
-})->name('signin');
+Route::get('/profile',function(){
+    return view('profile-create');
+})->name('profile');
+Route::get('/profile/{user}', [App\Http\Controllers\MainController::class, 'index'])->name('profile.show');
 
 Route::get('/welcome', function () {
-    return view('welcome'); // Matches resources/views/home.blade.php
+    return view('welcome'); 
 })->name('welcome');

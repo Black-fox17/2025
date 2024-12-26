@@ -12,16 +12,22 @@
         <div class="header-image">
             <img src="LoroPiana-logo.svg" alt="Website Logo" class="logo">
         </div>
-        <div class="auth">
-            <div class="login">
-                <a href="{{ route('signin') }}">
-                    Login
-                </a>
+        @guest
+            <div class="auth">
+                <div class="login">
+                    <a href="{{ route('signin') }}">
+                        Login
+                    </a>
+                </div>
+                <div class="signup">
+                    <a href="{{ route('signup') }}">Sign Up</a>
+                </div>
             </div>
-            <div class="signup">
-                <a href="{{ route('signup') }}">Sign Up</a>
+        @else
+            <div class="auth">
+                <h4 class = "profile-username">{{ Auth::user()->name }}</h1>
             </div>
-        </div>
+        @endguest
     </header>
         <div class="video-container">
             <video class = "picture-teaser__media" autoplay loop muted>

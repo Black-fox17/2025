@@ -16,13 +16,29 @@
     </a>
     <div class="container">
         <h2>Sign In</h2>
-        <form action="/signin" method="post">
+        <form action="{{ route('signin_post') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="text" name="email" required>   
+                <input type="email" id="text" name="email" value= "{{ old('email') }}" autocomplete="email"> 
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror 
                 <label for="password">Password:</label>
-                <input type="password" id="text" name="password" required>
+                <input type="password" id="text" name="password" value = "{{ old('password') }}" autocomplete="current-password">
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <button type="submit" id="submit">Login</button>
+                @if (Route::has('password.request'))
+                    <a class="forgot" href="{{ route('password.request') }}">
+                        Forgot Your Password?
+                    </a>
+                @endif
                 <p>Don't have an account? <a href="{{ route('signup') }}">Sign Up</a></p>
             </div>
         </form>
