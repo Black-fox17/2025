@@ -45,5 +45,16 @@
                  <button class="add-to-cart">Buy Now </button>
             </a>
         </div>
-    <div>
+    </div>
+    <footer class="footer">
+        <p>Follow us on:</p>
+        <a href="https://github.com/Black-fox17" target="_blank">
+            <img src="{{ asset('icons/github.png')}}" alt="GitHub" class="social-icon">
+        </a>
+        <a href=" https://x.com/Ayeleru_Salam?t=zpVRj-xTsq986rVwkTOF0Q&s=08 " target="_blank">
+            <img src="{{ asset('icons/x.png')}}" alt="Twitter" class="social-icon">
+        </a>
+        <p>&copy; 2025 All rights reserved</p>
+    </footer>   
+</body>
 </html>

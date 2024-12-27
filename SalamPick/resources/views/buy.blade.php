@@ -58,7 +58,7 @@
         <div class="header">
             <h1>Buy Now</h1>
         </div>
-        <form action="{{ route('payment.process') }}" method="POST">
+        <form action="#" method="POST">
             @csrf
             <div class="form-group">
                 <label for="card_number">Card Number</label>
@@ -75,5 +75,15 @@
             <button type="submit" class="btn">Pay Now</button>
         </form>
     </div>
+    <footer class="footer">
+        <p>Follow us on:</p>
+        <a href="https://github.com/Black-fox17" target="_blank">
+            <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href=" https://x.com/Ayeleru_Salam?t=zpVRj-xTsq986rVwkTOF0Q&s=08 " target="_blank">
+            <img src="icons/x.png" alt="Twitter" class="social-icon">
+        </a>
+        <p>&copy; 2025 All rights reserved</p>
+    </footer>   
 </body>
 </html>

@@ -19,9 +19,9 @@ Route::get('/', function(){
 Route::get("/product/{id}",[ProductController::class,'getProduct'])-> name('product.show');
 
 Route::get("/fashion-products",[ProductController::class,'showProducts']) -> name("products");
+    
+// Route::get('/payment', function () {
+//     return view('buy');
+// })->name('buy');
 
-Route::get('/payment', function () {
-    return view('payment');
-})->name('buy');
-
-// Route::get("/buynow",[HomeController::class,'index']) -> name('buy');
+Route::get("/payment",[HomeController::class,'index']) -> name('buy');
