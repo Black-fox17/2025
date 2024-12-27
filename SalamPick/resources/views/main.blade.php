@@ -75,25 +75,21 @@
     <section id = "fashion" class="fas-container">
         <h2>Fashion</h2>
         <div class="products">
-            <div class="product">
-                <img src="images/sneaker.webp" alt="Product 1">
-                <h3>Bouncing Sneaker</h3>
-                <p class="price">$970       </p>
-            </div>
-            <div class="product">
-                    <a href="{{ route('product-page') }}">
-                    <img src="images/loafer.webp" alt="Product 2">
-                    <h3>Icone Loafer</h3>
-                    <p class="price">$1,600</p>
-                    <p>Loafer in calfskin with functional palladium-plated Kelly buckle and light notched sole.</p>
-                    </a>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="Product 3">
-                <h3>Product 3</h3>
-                <p class="price">$1,600</p>
-                <p>Loafer in calfskin with functional palladium-plated Kelly buckle and light notched sole.</p>
-            </div>
+            @foreach($products as $product)
+                <div class="product">
+                    <div class="card mb-4">
+                    <a href = "{{ route('product.show', ['id' => $product['id']]) }}">
+                            <img 
+                                src="{{ asset($product['image_url']) }}" 
+                                class="card-img-top" 
+                                alt="{{ $product['name'] ?? 'Product Image' }}">
+                                <h3 >{{ $product['name'] }}</h5>
+                                <p class="card-text">{{ $product['description'] }}</p>
+                                <p class="price">${{ number_format($product['price'], 2) }}</p>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 </body>

@@ -26,10 +26,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function showProducts()
-    {
-        $path = storage_path('app/public/products.json'); // Ensure the correct path
-        $products = json_decode(File::get($path), true); // Decode JSON into an array
-        return view('products', ['products' => $products]);
-    }
 }

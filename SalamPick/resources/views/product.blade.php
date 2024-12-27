@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-    <link rel="stylesheet" href="stylesheet/styles.css">
-    <link rel="icon" href="icons/martin.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('stylesheet/styles.css')}}">
+    <link rel="icon" href="{{asset('icons/martin.png')}}" type="image/x-icon">
 </head>
 <body>
     <header class="header">
             <div class="header-image">
                 <a href="{{ route('main') }}">
-                    <img src="LoroPiana-logo.svg" alt="Website Logo" class="logo">
+                    <img src="{{asset('LoroPiana-logo.svg')}}" alt="Website Logo" class="logo">
                 </a>
             </div>
     </header>
     <div class= "product-container">
         <div class = "image-container">
-            <img src="images/loafer.webp" alt="Product Image" class="product-image">
+            <img src="{{ asset($product['image_url']) }}"  alt="Product Image" class="product-image">
         </div>
         <div class = "product-info">
-            <h2 class = "title">Icone Loafer</h2>
+            <h2 class = "title">{{$product['name']}}</h2>
             <span>
-            <p class="price">$150.00</p>
+            <p class="price">${{ number_format($product['price'], 2) }}</p>
             </span>
             <div class="personal-reason">
                 <h3>Why I Want This Product</h3>

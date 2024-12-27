@@ -4,9 +4,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
+// Route::get('/', function () {
+//     return view('main');
+// })->name('main');
 
 Auth::routes();
 
@@ -16,13 +16,9 @@ Route::post('/signup', [App\Http\Controllers\Auth\RegisterController::class, 're
 Route::get('/signin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('signin');
 Route::post('/signin', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('signin_post');
 
-Route::get('/profile',function(){
-    return view('profile-create');
-})->name('profile');
-Route::get('/profile/{user}', [App\Http\Controllers\MainController::class, 'index'])->name('profile.show');
-
-Route::get('/products', [ProductController::class, 'showProducts']);
+Route::get('/', [ProductController::class, 'showProducts']) -> name('main');
+Route::get("/product/{id}",[ProductController::class,'getProduct'])-> name('product.show');
 
 Route::get('/product-page', function () {
-    return view('product-page'); 
+    return view('product'); 
 })->name('product-page');

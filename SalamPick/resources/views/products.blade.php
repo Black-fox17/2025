@@ -13,13 +13,15 @@
             @foreach($products as $product)
                 <div class="product">
                     <div class="card mb-4">
-                        <img 
-                            src="{{ asset($product['image_url']) }}" 
-                            class="card-img-top" 
-                            alt="{{ $product['name'] ?? 'Product Image' }}">
-                            <h3 >{{ $product['name'] }}</h5>
-                            <p class="card-text">{{ $product['description'] }}</p>
-                            <p class="price">${{ number_format($product['price'], 2) }}</p>
+                    <a href = "{{ route('product.show', ['id' => $product['id']]) }}">
+                            <img 
+                                src="{{ asset($product['image_url']) }}" 
+                                class="card-img-top" 
+                                alt="{{ $product['name'] ?? 'Product Image' }}">
+                                <h3 >{{ $product['name'] }}</h5>
+                                <p class="card-text">{{ $product['description'] }}</p>
+                                <p class="price">${{ number_format($product['price'], 2) }}</p>
+                        </a>
                     </div>
                 </div>
             @endforeach
