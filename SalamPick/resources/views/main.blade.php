@@ -73,7 +73,7 @@
         </ul>
     </nav>
     <section id = "fashion" class="fas-container">
-        <h2>Fashion</h2>
+        <h2 class="fashion-head">Fashion</h2>
         <div class="products">
             @foreach($products as $product)
                 <div class="product">

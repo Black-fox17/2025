@@ -19,6 +19,4 @@ Route::post('/signin', [App\Http\Controllers\Auth\LoginController::class, 'login
 Route::get('/', [ProductController::class, 'showProducts']) -> name('main');
 Route::get("/product/{id}",[ProductController::class,'getProduct'])-> name('product.show');
 
-Route::get('/product-page', function () {
-    return view('product'); 
-})->name('product-page');
+Route::get("/fashion-products",[ProductController::class,'showProducts']);

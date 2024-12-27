@@ -26,22 +26,21 @@
             </span>
             <div class="personal-reason">
                 <h3>Why I Want This Product</h3>
-                <p>I have always loved loafers for their classic and timeless style. They are the perfect combination of comfort and elegance. As someone with long feet, finding the right pair of shoes can be challenging, but these Icone Loafers seem to be the perfect fit for me. I have always wanted a pair that not only looks great but also feels comfortable, and these loafers meet both criteria.</p>
+                <p>{{$product['why_want_product']}}</p>
             </div>
         </div>
         <div class="buyer-info">
             <div class="info">
                 <p><strong>Sold by</strong></p>
-                <a href= "https://www.hermes.com/us/en/product/icone-loafer-H242169Zv4N360/"><p>Hermes</p></a>
+                <a href= "https://www.hermes.com/us/en/product/icone-loafer-H242169Zv4N360/"><p>{{$product['sold_by']}}</p></a>
             </div>
             <br>    
             <div class="color">
                 <p>Color</p>
-                <p class="type">Vert Foret</p>
+                <p class="type">{{$product['color']}}</p>
             </div>
-            <p class="description">Loafer in suede goatskin with functional Kelly buckle and light notched sole.
-            For a modern urban look.</p>
-            <p class="description">Made in Italy</p>
+            <p class="description">{{$product['description']}}</p>
+            <p class="description">Made in {{$product['made_in']}}</p>
             <button class="add-to-cart">Buy Now</button>
         </div>
     <div>

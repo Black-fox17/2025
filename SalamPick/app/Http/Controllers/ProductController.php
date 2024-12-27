@@ -11,7 +11,7 @@ class ProductController extends Controller
         $path = storage_path('app/public/products.json');
         $jsonData = json_decode(File::get($path), true);
         $products = $jsonData['products'] ?? [];
-        return view('main', ['products' => $products]);
+        return view('products', ['products' => $products]);
     }
     public function getProduct($id){
         $path = storage_path('app/public/products.json');
