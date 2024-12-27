@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>{{$product['name']}}</title>
     <link rel="stylesheet" href="{{asset('stylesheet/styles.css')}}">
     <link rel="icon" href="{{asset('icons/martin.png')}}" type="image/x-icon">
 </head>
@@ -41,7 +41,9 @@
             </div>
             <p class="description">{{$product['description']}}</p>
             <p class="description">Made in {{$product['made_in']}}</p>
-            <button class="add-to-cart">Buy Now</button>
+            <a href = "{{ route('buy') }}" class="add-link">
+                 <button class="add-to-cart">Buy Now </button>
+            </a>
         </div>
     <div>
 </html>

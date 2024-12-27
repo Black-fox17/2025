@@ -15,7 +15,7 @@
         </div>
     </a>
     <div class="container" style="height:150vh">
-        <h2>Sign Up</h2>
+        <h2 style="text-align: center;">Sign Up</h2>
         <form action="{{ route('signup_post') }}" method="POST">
             @csrf
             <div class="form-group">

@@ -15,6 +15,41 @@ h2{
     font-weight: 400;
     padding: 1.6rem 0;
 }
+.disco{
+    color: #9d5248;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+.disco a{
+    color: #9d5248;
+    text-decoration: none;
+}
+.disco a:hover{
+    color: #cc001f;
+}
+.fas-container p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+.descr{
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.products-head{
+    text-align: center;
+    padding-bottom: .75rem;
+    padding-top: .75rem;
+    color: #121010;
+    line-height: 1.75rem;
+    font-family: "Quicksand","Times-Now-Semi-Light", Georgia, serif;
+    font-size: 1.625rem;
+}
 .fashion-head{
     text-align: center;
 }
@@ -322,7 +357,10 @@ h2{
     transition: background-color 0.3s ease;
     margin-left: 40px;
 }
-
+.add-link{
+    color: #fff;
+    text-decoration: none;
+}
 .add-to-cart:hover {
     background-color: #cc001f;
 }

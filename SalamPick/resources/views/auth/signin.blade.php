@@ -15,7 +15,7 @@
         </div>
     </a>
     <div class="container">
-        <h2>Sign In</h2>
+        <h2 style="text-align: center;">Sign In</h2>
         <form action="{{ route('signin_post') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -27,7 +27,23 @@
                     </span>
                 @enderror 
                 <label for="password">Password:</label>
-                <input type="password" id="text" name="password" value = "{{ old('password') }}" autocomplete="current-password">
+                <div class="input-password">
+                    <input type="password" id="password" name="password" value = "{{ old('password') }}" autocomplete="current-password">
+                    <img src = "icons/eye-close.png" id="togglePassword" alt="Show Password">
+                </div>
+                <script>
+                    let password = document.getElementById('password');
+                    let togglePassword = document.getElementById('togglePassword');
+                    togglePassword.addEventListener('click', function() {
+                        if (password.type === 'password') {
+                            password.type = 'text';
+                            togglePassword.src = 'icons/eye-open.png';
+                        } else {
+                            password.type = 'password';
+                            togglePassword.src = 'icons/eye-close.png';
+                        }
+                    });
+                </script>
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

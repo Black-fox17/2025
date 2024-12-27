@@ -6,6 +6,9 @@
     <title>Salam's Picks</title>
     <link rel="stylesheet" href="stylesheet/styles.css">
     <link rel="icon" href="icons/martin.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IE+Guides&display=swap" rel="stylesheet">
 </head>
 <body class="main">
     <header class="header">
@@ -74,23 +77,7 @@
     </nav>
     <section id = "fashion" class="fas-container">
         <h2 class="fashion-head">Fashion</h2>
-        <div class="products">
-            @foreach($products as $product)
-                <div class="product">
-                    <div class="card mb-4">
-                    <a href = "{{ route('product.show', ['id' => $product['id']]) }}">
-                            <img 
-                                src="{{ asset($product['image_url']) }}" 
-                                class="card-img-top" 
-                                alt="{{ $product['name'] ?? 'Product Image' }}">
-                                <h3 >{{ $product['name'] }}</h5>
-                                <p class="card-text">{{ $product['description'] }}</p>
-                                <p class="price">${{ number_format($product['price'], 2) }}</p>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        <p class="disco"><a href="{{ route('products') }}">Discover more </a></p>
     </section>
 </body>
 </html>
