@@ -72,8 +72,11 @@
             <img src="{{ asset('icons/x.png')}}" alt="Twitter" class="social-icon">
         </a>
         <p>&copy; 2025 All rights reserved</p>
-    </footer>   
-
-    <script src="{{ asset('cart.js') }}"></script>
+    </footer> 
+    @yield('scripts')  
+    <script
+        async src="https://pay.google.com/gp/p/js/pay.js"
+        onload="onGooglePayLoaded()">
+    </script>
 </body>
 </html>

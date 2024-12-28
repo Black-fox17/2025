@@ -6,6 +6,11 @@
 
 @section('content')
 <div>
+    <a href = "{{ url()->previous() }}">
+        <div class = "back-btn">
+            <img src = "{{ asset('icons/back.svg')}}">
+        </div>
+    </a>
     <div class="fas-container">
         <h3 class="products-head">Fashion Products</h3>
         <p class="descr">Designed for ultimate performance on the slopes, Loro Piana’s Ski Capsule presents a wardrobe for life lived en plein air. From skiwear to a handcrafted snowboard, the lineup showcases how the noblest of natural fibres are refined through the Maison’s endless quest for textile innovation.</p>

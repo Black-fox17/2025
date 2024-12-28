@@ -6,6 +6,11 @@
 
 @section('content')
 <div>
+    <a href = "{{ url()->previous() }}">
+        <div class = "back-btn">
+            <img src = "{{ asset('icons/back.svg')}}">
+        </div>
+    </a>
     <div class= "product-container">
         <div class = "image-container">
             <img src="{{ asset($product['image_url']) }}"  alt="Product Image" class="product-image">
@@ -42,12 +47,19 @@
                     Add to Cart
                 </button>
             </div>
-            <div class="btn-buy">
+            <!-- <div class="btn-buy" target = "_blank">
                 <a href = "{{ route('buy') }}" class="add-link">
                     <button  class="add-to-cart">Buy Now </button>
                 </a>
+            </div> -->
+            <div class = "btn-buy" id = "payment">
             </div>
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script src  = "{{ asset('pay.js')}}"> 
+        const paymentprice = "{{$product['price']}}";
+    </script>
 @endsection
