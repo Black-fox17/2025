@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$product['name']}}</title>
     <link rel="stylesheet" href="{{asset('stylesheet/styles.css')}}">
     <link rel="icon" href="{{asset('icons/martin.png')}}" type="image/x-icon">
@@ -14,6 +15,34 @@
                     <img src="{{asset('LoroPiana-logo.svg')}}" alt="Website Logo" class="logo">
                 </a>
             </div>
+            @auth
+            <div class = "sidebar">
+            <div class="cart">
+                <a href="{{ route('cart')}}">
+                    <img src="{{ asset('icons/cart.svg')}}" alt="Cart Icon" class="user-icon">
+                </a>
+            </div>
+            <div class="dropdown">
+                <div class = "dropdown-icon">
+                    <img src="{{ asset('icons/account.svg')}}" alt="User Icon" class="user-icon">
+                </div>
+                <div class = "dropdown-menu">
+                    <ul>
+                        <li><p class = "profile-username"> Welcome, {{ Auth::user()->username }}</p></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            Logout
+                        </a></li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @endauth
     </header>
     <div class= "product-container">
         <div class = "image-container">
@@ -41,8 +70,19 @@
             </div>
             <p class="description">{{$product['description']}}</p>
             <p class="description">Made in {{$product['made_in']}}</p>
+            <button 
+                class="add-cart" 
+                data-id="{{ $product['id'] }}" 
+                data-name="{{ $product['name'] }}" 
+                data-price="{{ $product['price'] }}" 
+                data-image="{{ $product['image_url'] }}">
+                Add to Cart
+            </button>
+
+
+
             <a href = "{{ route('buy') }}" class="add-link">
-                 <button class="add-to-cart">Buy Now </button>
+                 <button  class="add-to-cart">Buy Now </button>
             </a>
         </div>
     </div>
@@ -56,5 +96,6 @@
         </a>
         <p>&copy; 2025 All rights reserved</p>
     </footer>   
+    <script src = "{{ asset('cart.js') }}" ></script>
 </body>
 </html>
