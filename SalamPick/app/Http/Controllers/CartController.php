@@ -3,9 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
+//     public function addToCart(Request $request)
+// {
+//     try {
+//         $cart = session()->get('cart', []);
+//         $productId = $request->input('product_id');
+//         $quantity = $request->input('quantity', 1);
+
+//         if (isset($cart[$productId])) {
+//             // Update the product quantity
+//             $cart[$productId]['quantity'] += $quantity;
+//         } else {
+//             // Add a new product
+//             $cart[$productId] = [
+//                 'name' => $request->input('name'),
+//                 'price' => $request->input('price'),
+//                 'image' => $request->input('image'),
+//                 'quantity' => $quantity,
+//             ];
+//         }
+
+//         session()->put('cart', $cart);
+
+//         return response()->json(['message' => 'Product added to cart successfully', 'cart' => $cart]);
+
+//     } catch (\Exception $e) {
+//         Log::error('Error adding product to cart: ' . $e->getMessage());
+//         return response()->json(['message' => 'Something went wrong!'], 500);
+//     }
+// }
+
     public function addToCart(Request $request)
     {
         $cart = session()->get('cart', []);
@@ -26,9 +57,8 @@ class CartController extends Controller
         }
     
         session()->put('cart', $cart);
-        dd(session()->get('cart'));
     
-        return response()->json(['message' => 'Product added to cart successfully']);
+        return response()->json(['message' => 'Product added to cart successfully', 'cart' => $cart]);
     }
     
     public function getCart()

@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="{{ asset('stylesheet/styles.css') }}">
-</head>
-<body>
-    <div class="container">
+@extends('layouts.whole')
+
+@section('title')
+    cart
+@endsection
+
+@section('content')
+<div>
+    <div class="cart-container">
     <h1>Your Cart</h1>
     @if(empty($cart))
         <p>Your cart is empty.</p>
     @else
+        @php
+            $total = 0;
+        @endphp
         @foreach($cart as $productId => $item)
+            @php
+                $total += $item['price'] * $item['quantity'];
+            @endphp
             <div class="cart-item">
                 <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                 <h2>{{ $item['name'] }}</h2>
@@ -23,7 +27,14 @@
                 <button onclick="removeFromCart('{{ $productId }}')">Remove</button>
             </div>
         @endforeach
+        <div class="total-payment">
+            <h3>Total Payment: ${{ $total }}</h3>
+        </div>
+        <div class="btn-buy">
+            <a href = "{{ route('buy') }}" class="add-link">
+                    <button  class="add-to-cart">Checkout</button>
+            </a>
+        </div>
     @endif
-    <script src="{{ asset('cart.js') }}"></script>
-</body>
-</html>
+</div>
+@endsection

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const image = button.getAttribute('data-image');
 
             // Call the addToCart function with the extracted values
+            console.log("Hello")
             addToCart(productId, name, price, image);
         });
     });
@@ -23,9 +24,9 @@ function addToCart(productId, name, price, image) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            product_id: productId,
+            product_id: parseInt(productId),
             name: name,
-            price: price,
+            price: parseFloat(price),
             image: image,
             quantity: 1,
         }),
