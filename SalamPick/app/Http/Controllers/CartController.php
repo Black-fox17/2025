@@ -9,7 +9,6 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $cart = session()->get('cart', []);
-    
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity', 1);
     
@@ -35,7 +34,6 @@ class CartController extends Controller
     public function getCart()
     {
         $cart = session()->get('cart', []);
-        dd($cart);
         return view('cart', compact('cart'));
     }
 
