@@ -45,12 +45,12 @@
         <p class="disco"><a href="{{ route('autos') }}">Discover more Cars</a></p>
         <a href="{{ route('autos') }}">
         <div class="fas-img-container">
-        <img class="img-container" src="{{ asset('G800_ Superblack elephant studio klein  (4)-1920x1080.jpg') }}">
+        <img class="img-container" src="{{ asset('BRABUS_files/BRABUS Deep Blue_On Location_klein (23)-1200x800.jpg') }}">
             <div class="four-images">
-                <img src="{{ asset('cars/esh.png') }}">
-                <img src="{{ asset('images/lp-evening-1080x1350-15-.jpg') }}">
-                <img src="{{ asset('images/lp-evening-1080x1350-1-.jpg') }}">
-                <img src="{{ asset('images/lp-apres-ski-80-main-1080x1350-12-.jpg') }}">
+                <img src="{{ asset('BRABUS_files/BRABUS_Rocket_1000_M-AMG GT 63_Mars (14 von 23)-1170x780.jpg') }}">
+                <img src="{{ asset('BRABUS_files/G800_ Superblack elephant studio klein  (10)-960x640.jpg') }}">
+                <img src="{{ asset('BRABUS_files/BRABUS Rocket GTS_Location_klein (25)-1170x780.jpg') }}">
+                <img src="{{ asset('BRABUS_files/BRABUS RR 600 outdoor klein (16)-1170x780.jpg') }}">
             </div>
         </div>
         </a>
