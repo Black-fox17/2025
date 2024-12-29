@@ -1,0 +1,423 @@
+var A9PIXEL = (function(window,document)
+{
+    if (A9PIXEL)
+    {
+        A9PIXEL.fireA9Pixel();
+        return A9PIXEL;
+    }
+    var tracker = {
+        "protocol": "https",
+        "host": "s.tribalfusion.com",
+        processQue: function()
+        {
+            var a9;
+            for (var i = 0; i < a9PixelQue.length; i++)
+            {
+                a9 = a9PixelQue[i];
+                if (a9.status !== "done")
+                { 
+                    this.firePixel(a9);
+                    a9.status = "done";
+                }
+            }
+        },
+        firePixel: function(tag_params)
+        {
+            var obj = utility.mergeParam(tag_params, a9Page.pageParams);
+            var url = this.getPixelUrl(obj);
+            this.fireImagePixel(url);
+        },
+        fireImagePixel: function(url)
+        {
+            var image = document.createElement('img');
+            image.src = url;
+        },
+
+        getPixelUrl: function(pixel_json)
+        {
+            var type, queryParam, url;
+            type = pixel_json.eventType || "visitor";
+            queryParam = JSON.stringify(pixel_json);
+            url = "//" + this.host + "/" + type + "?" + encodeURIComponent(queryParam);
+            return url;
+        }
+    };
+    var utility = {
+        sliceURL: function(obj)
+        {
+            if (obj)
+            {
+                return (obj.substring(0, 512));
+            }
+        },
+        loadJSFile: function(url)
+        {
+            var script, scriptTag, url;
+            script = document.createElement('script');
+            scriptTag = document.getElementsByTagName("script")[0];
+            script.src = url;
+            scriptTag.parentNode.insertBefore(script, scriptTag);
+        },
+        mergeParam: function(tag_params, page_params)
+        {
+            var result = {};
+            for (var key in page_params)
+            {
+                if (page_params.hasOwnProperty(key))
+                {
+                    result[key] = page_params[key];
+                }
+            }
+            for (var key in tag_params)
+            {
+                if (tag_params.hasOwnProperty(key))
+                {
+                    result[key] = tag_params[key];
+                }
+            }
+            return result;
+        },
+        getRefURL: function()
+        {
+            var refURL = (this.getPageURL() !== document.referrer) ? document.referrer : undefined;
+            return refURL;
+        },
+        getPageURL: function()
+        {
+            var pageURL;
+            try
+            {
+                pageURL = window.top.location.href;
+                if (pageURL === undefined)
+                {
+                    throw ("Error");
+                }
+            }
+            catch (exception)
+            {
+                pageURL = document.referrer;
+            }
+            return pageURL;
+        },
+        buildParams: function(obj, param, key, value)
+        {
+            if (value)
+            {
+                obj[param][key] = value;
+            }
+        },
+        makeTagHash: function()
+        {
+            var tagHash = 0;
+            for (var pn in navigator)
+            {
+                var navElem = navigator[pn];
+                var navType = this.objectType(navElem);
+                if (navType === 'string')
+                    tagHash = this.hash(pn, '' + navElem, tagHash);
+                else if (navType === 'array')
+                {
+                    for (var i = 0; i < navElem.length; i++)
+                    {
+                        var p = navElem[i];
+                        tagHash = this.hash(i, p.name + p.description, tagHash);
+                    }
+                }
+            }
+            return tagHash;
+        },
+        hash: function(name, data, hashVal)
+        {
+            var n = 0;
+            data = this.getData(name, data);
+            if (data)
+            {
+                for (var i = 0; i < data.length; i++)
+                {
+                    n = ((n * 997) + data.charCodeAt(i)) & 0x7fffffff;
+
+                }
+            }
+            hashVal += n;
+            return hashVal;
+        },
+
+        getData: function(name, data)
+        {
+            if (name === "appVersion" || name === 'userAgent')
+            {
+                if (data.indexOf("Trident/4.0") > 0)
+                {
+                    data = data.replace(/MSIE \d+.0/, 'MSIE 8.0');
+                }
+                if (data.indexOf("Trident/5.0") > 0)
+                {
+                    data = data.replace(/MSIE \d+.0/, 'MSIE 9.0');
+                }
+            }
+            else
+            {
+                if ((name === 'constructor') ||
+                    (name === 'plugins') ||
+                    (name === undefined))
+                {
+                    data = null;
+                }
+            }
+            return data;
+        },
+
+        objectType: function(o)
+        {
+            try
+            {
+                switch (typeof(o))
+                {
+                    case 'object':
+                        if (o === null) return 'null';
+                        if (o.constructor === Array) return 'array';
+                        if (o.constructor === Date) return 'date';
+                        return 'object';
+                    case 'function':
+                        if (o.constructor === RegExp) return 'regex';
+                        return 'function';
+                    default:
+                        return typeof(o);
+                }
+            }
+            catch (e)
+            {
+                return 'undefined';
+            }
+        },
+        isTopAccessible:function()
+         {
+            var		isTopAccessible = false;
+            try
+                {
+                    if (window.top.location.href !== undefined)
+                        isTopAccessible = true;
+                    }
+                catch(e) { }
+                return isTopAccessible;
+         },
+         IsJsonString:function(str) {
+			if(!str){
+				return false;
+			}
+			try {
+				JSON.parse(str);
+			} catch (e) {
+				return false;
+			}
+			return true;
+		},
+        getLocalStorageObject:function(){
+			var isTop = this.isTopAccessible();
+			var win = isTop ? top : window;
+			return win.localStorage;
+		},
+		setItemInLocalSorage:function(expoconsent){
+			var localStorageObject = this.getLocalStorageObject();
+			if(localStorageObject){
+				localStorageObject.setItem('expoconsent',JSON.stringify(expoconsent));
+			}
+		},
+		 getItemFromLocalStorage:function(key){
+			var localStorageObject = this.getLocalStorageObject();
+			if(localStorageObject){
+				return localStorageObject.getItem(key);
+			}
+			else {
+				return null;
+			}
+		},
+        setCMPConsent:function(){
+
+			var isTop = utility.isTopAccessible();
+			var win = isTop ? top : window;
+			var callback = function(tcData, success) {
+				var expoconsent={
+				   tcString : '',
+				   gdprApplies: (tcData && tcData.gdprApplies) ? 1 : 0
+				 }
+				  if (success  && (tcData.eventStatus === "useractioncomplete" || tcData.eventStatus ===  "tcloaded")) {
+                                        expoconsent.tcString = tcData.tcString;
+				 }
+				utility.setItemInLocalSorage(expoconsent)
+			}
+			if(!isTop){
+				function postMessageHandler(event) {
+					var json = {};
+					try {
+						json = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+					} catch (ignore) {}
+
+					var payload = json.__tcfapiReturn;
+					if (payload) {
+						if (typeof cmpCallbacks[payload.callId] === 'function') {
+							cmpCallbacks[payload.callId](payload.returnValue, payload.success);
+						}
+					}
+				}
+				function CMPCrossDomainHandler(){
+					var frame = window;
+					var cmpFrame;
+					window.cmpCallbacks = {};
+					while (frame) {
+						try {
+							if (frame.frames['__tcfapiLocator']) {
+								cmpFrame = frame;
+								break;
+							}
+						} catch (ignore) { }
+						if (frame === window.top) {
+							break;
+						}
+						frame = frame.parent;
+					}
+					window.__tcfapi = function (cmd, version, callback, arg) {
+						if (!cmpFrame) {
+							callback({ msg: 'CMP not found' }, false);
+						}
+						else {
+							const callId = Math.random() + '';
+							const msg = {
+								__tcfapiCall: {
+									command: cmd,
+									parameter: arg,
+									version: version,
+									callId: callId,
+								},
+							};
+							cmpCallbacks[callId] = callback;
+							cmpFrame.postMessage(msg, '*');
+						}
+					};
+					//window.__tcfapi('getTCData', 2, callback, [1]);
+					window.__tcfapi('addEventListener', 2, callback);
+				}
+				window.addEventListener('message', postMessageHandler, false);
+
+				CMPCrossDomainHandler()
+			}
+			else if( win.__tcfapi){
+					win.__tcfapi('addEventListener', 2, callback);
+			}
+		},
+    };
+    var a9Page = {
+        tagKey: "1803770899",
+        version: "1.1",
+        isRegionEU: false,
+        displayAdVersion: 0.8,
+        tagHash: utility.makeTagHash(),
+        pageParams: "",
+        init: function()
+        {
+            if(typeof a9 !== "undefined" && typeof a9PixelQue === "undefined"){
+                this.sync = true;
+            }
+            if(this.sync === true )
+            {
+                var expoPixelClone;
+
+                if(Object.assign){
+                    expoPixelClone = Object.assign({}, a9 || {});
+                }
+                else
+                {
+                    expoPixelClone = a9 || {};
+                }
+
+               (window['a9PixelQue'] = (window['a9PixelQue'] || [] )).push(expoPixelClone);
+            }
+            if (!this.getTkey() && !this.expoDisplayAd)
+            {
+                utility.loadJSFile(this.fetchDisplayAdJS());
+                this.expoDisplayAd = "fetching";
+                return;
+            }
+            else if (this.getTkey())
+            {
+                this.buildPageParam();
+                if (a9PixelQue)
+                {
+                    tracker.processQue();
+                }
+            }
+            if(this.isRegionEU) {
+                utility.setCMPConsent();
+            }
+        },
+        fetchDisplayAdJS: function()
+        {
+            var displayAdURL = "//s.tribalfusion.com/displayAd.js?dver=" + this.displayAdVersion + "&th=" + this.tagHash;
+            if(this.isRegionEU) {
+              var isA9Gdpr = typeof a9 !== "undefined" ? a9 : {};
+               if(    (isA9Gdpr.gdpr !== undefined)
+                   && (isA9Gdpr.gdpr_consent !== undefined)) {
+                  displayAdURL+= "&gdpr="+isA9Gdpr.gdpr+"&gdpr_consent="+isA9Gdpr.gdpr_consent;
+               }
+               else {
+                  var expoconsent = utility.getItemFromLocalStorage('expoconsent');
+                  if (utility.IsJsonString(expoconsent)) {
+                     expoconsent =  JSON.parse(expoconsent);
+                     displayAdURL+= "&gdpr="+expoconsent.gdprApplies+"&gdpr_consent="+expoconsent.tcString;
+                  }
+               }
+            }
+            return displayAdURL;
+        },
+        getTkey: function()
+        {
+            return this.tKey;
+        },
+        setTkey: function(tkey)
+        {
+            this.tKey = tkey;
+        },
+        buildPageParam: function()
+        {
+            if (this.pageParams == "")
+            {
+                this.pageParams = {};
+                utility.buildParams(this, "pageParams", "tagKey", this.tagKey);
+                utility.buildParams(this, "pageParams", "th", this.tagHash);
+                utility.buildParams(this, "pageParams", "version", this.version);
+                utility.buildParams(this, "pageParams", "tKey", this.tKey);
+                utility.buildParams(this, "pageParams", "url", utility.sliceURL(utility.getPageURL()));
+                utility.buildParams(this, "pageParams", "rurl", utility.sliceURL(utility.getRefURL()));
+
+                if(this.isRegionEU) {
+                   var isA9Gdpr = typeof a9 !== "undefined" ? a9 : {};
+                   if(    (isA9Gdpr.gdpr !== undefined)
+                       && (isA9Gdpr.gdpr_consent !== undefined)) {
+                      utility.buildParams(this, "pageParams", "gdpr", isA9Gdpr.gdpr);
+                      utility.buildParams(this, "pageParams", "gdpr_consent", isA9Gdpr.gdpr_consent);
+                   }
+                   else {
+                      var expoconsent = utility.getItemFromLocalStorage('expoconsent');
+                      if (utility.IsJsonString(expoconsent)) {
+                         expoconsent =  JSON.parse(expoconsent);
+                         utility.buildParams(this, "pageParams", "gdpr", expoconsent.gdprApplies);
+                         utility.buildParams(this, "pageParams", "gdpr_consent", expoconsent.tcString);
+                      }
+                   }
+                }
+            }
+        }
+    };
+    var a9Pixel = {
+        setTKey: function(key)
+        {
+            a9Page.setTkey(key);
+        },
+        fireA9Pixel: function()
+        {
+            a9Page.init();
+        }
+    }
+    a9Page.init();
+    return a9Pixel;
+})(window, document);

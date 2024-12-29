@@ -355,7 +355,8 @@ h2{
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-left: 40px;
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 .add-cart{
     background-color: #000;
@@ -367,7 +368,6 @@ h2{
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-bottom: 10px;
-    margin-left: 40px;
 
 }
 .add-cart:hover{
@@ -381,8 +381,11 @@ h2{
     background-color: #cc001f;
 }
 .btn-buy{
-    justify-content: center;
+    max-width: fit-content;
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .color{
@@ -417,80 +420,6 @@ h2{
 .info a:hover{
     color: #000;
 }
-/* .product-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
-}
-
-.product-description {
-    font-size: 1rem;
-    color: #666;
-    margin: 10px 0;
-}
-
-.product-price {
-    font-size: 1.4rem;
-    color: #e60023;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.add-to-cart {
-    background-color: #e60023;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-to-cart:hover {
-    background-color: #cc001f;
-}
-
-.product-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.product-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 15px;
-    width: 23%;
-    transition: transform 0.3s ease;
-}
-
-.product-item:hover {
-    transform: translateY(-5px);
-}
-
-@media screen and (max-width: 768px) {
-    .product-item {
-        width: 48%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .product-item {
-        width: 100%;
-    }
-} */
 .input-password{
     display: flex;
     justify-content: space-between;
@@ -826,7 +755,40 @@ h2{
 .btn:hover {
     background-color: #c0392b;
 }
+.google-btn{
+    max-width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fas-img-container {
+    max-width: 1200px;
+    padding: 40px auto;
+    display: flex;
+    gap: 50px;
+    margin-top: 7%;
+    margin-bottom: 20px;
 
+}
+
+.img-container{
+    width: 40%;
+    height: 100%;
+    flex: 1;
+}
+.four-images{
+    display: flex; 
+    flex-wrap: wrap;  
+    flex: 1; 
+    gap: 10px;
+}
+.four-images img{
+    flex: 0 0 calc(50% - 5px);
+    width: 40%;
+    height: 50%;
+    object-fit: cover;
+}
 /* Responsive design */
 @media (max-width: 600px) {
     .payment-container {

@@ -29,6 +29,66 @@
     <section id = "fashion" class="fas-container">
         <h2 class="fashion-head">Fashion</h2>
         <p class="disco"><a href="{{ route('products') }}">Discover more </a></p>
+        <a href="{{ route('products') }}">
+        <div class="fas-img-container">
+        <img class="img-container" src="{{ asset('images/lp-apres-ski-80-main-1080x1350-11-.jpg') }}">
+            <div class="four-images">
+                <img src="{{ asset('images/lp-fw2024-main-1080x1350-28-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-15-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-1-.jpg') }}">
+                <img src="{{ asset('images/lp-apres-ski-80-main-1080x1350-12-.jpg') }}">
+            </div>
+        </div>
+        </a>
+        <p class="disco"><a href="{{ route('products') }}">Check out more </a></p>
+    </section>
+    <section id = "tech" class="fas-container">
+        <h2 class="fashion-head">Tech pieces</h2>
+        <p class="disco"><a href="{{ route('products') }}">Discover more </a></p>
+        <a href="{{ route('products') }}">
+        <div class="fas-img-container">
+        <img class="img-container" src="{{ asset('images/lp-apres-ski-80-main-1080x1350-11-.jpg') }}">
+            <div class="four-images">
+                <img src="{{ asset('images/lp-fw2024-main-1080x1350-28-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-15-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-1-.jpg') }}">
+                <img src="{{ asset('images/lp-apres-ski-80-main-1080x1350-12-.jpg') }}">
+            </div>
+        </div>
+        </a>
+        <p class="disco"><a href="{{ route('products') }}">Check out more </a></p>
+    </section>
+    <section id = "autos" class="fas-container">
+        <h2 class="fashion-head">Autos</h2>
+        <p class="disco"><a href="{{ route('products') }}">Discover more </a></p>
+        <a href="{{ route('products') }}">
+        <div class="fas-img-container">
+        <img class="img-container" src="{{ asset('G800_ Superblack elephant studio klein  (4)-1920x1080.jpg') }}">
+            <div class="four-images">
+                <img src="{{ asset('cars/esh.png') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-15-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-1-.jpg') }}">
+                <img src="{{ asset('images/lp-apres-ski-80-main-1080x1350-12-.jpg') }}">
+            </div>
+        </div>
+        </a>
+        <p class="disco"><a href="{{ route('products') }}">Check out more </a></p>
+    </section>
+    <section id = "food" class="fas-container">
+        <h2 class="fashion-head">Food</h2>
+        <p class="disco"><a href="{{ route('products') }}">Discover more </a></p>
+        <a href="{{ route('products') }}">
+        <div class="fas-img-container">
+        <img class="img-container" src="{{ asset('images/lp-apres-ski-80-main-1080x1350-11-.jpg') }}">
+            <div class="four-images">
+                <img src="{{ asset('images/lp-fw2024-main-1080x1350-28-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-15-.jpg') }}">
+                <img src="{{ asset('images/lp-evening-1080x1350-1-.jpg') }}">
+                <img src="{{ asset('images/lp-apres-ski-80-main-1080x1350-12-.jpg') }}">
+            </div>
+        </div>
+        </a>
+        <p class="disco"><a href="{{ route('products') }}">Check out more </a></p>
     </section>
 </div>
 @endsection

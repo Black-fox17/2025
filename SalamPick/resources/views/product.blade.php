@@ -52,14 +52,16 @@
                     <button  class="add-to-cart">Buy Now </button>
                 </a>
             </div> -->
-            <div class = "btn-buy" id = "payment">
-            </div>
-        </div>
+        <div class="google-btn">
+            <div id ="payment"></div>
+        <div<
     </div>
 </div>
 @endsection
 @section('scripts')
+    <script>
+        const paymentprice = "{{ $product['price'] }}";
+    </script>
     <script src  = "{{ asset('pay.js')}}"> 
-        const paymentprice = "{{$product['price']}}";
     </script>
 @endsection
