@@ -1,17 +1,12 @@
 {
-    "builds": [
-      {
-        "src": "public/index.php",
-        "use": "@vercel/php"
-      }
-    ],
-    "env": {
-      "COMPOSER_ALLOW_SUPERUSER": "1"
-    },
-    "functions": {
-      "api/**.php": {
-        "runtime": "vercel-php@0.4.0"
-      }
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/index.php",
+      "use": "@vercel/php"
     }
+  ],
+  "env": {
+    "COMPOSER_ALLOW_SUPERUSER": "1"
   }
-  
+}
