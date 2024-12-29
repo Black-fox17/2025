@@ -100,7 +100,7 @@ function onGooglePayLoaded() {
         countryCode: 'US',
         currencyCode: 'USD',
         totalPriceStatus: 'FINAL',
-        totalPrice: paymentprice.tofixed(2) ?? 2000,
+        totalPrice: paymentprice,
       },
       // todo: callbackIntents (codelab gpay-web-201)
     };

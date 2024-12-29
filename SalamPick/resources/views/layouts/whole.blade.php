@@ -74,6 +74,7 @@
         <p>&copy; 2025 All rights reserved</p>
     </footer> 
     @yield('scripts')  
+    <script src = "{{asset('cart.js')}}"></script>  
     <script
         async src="https://pay.google.com/gp/p/js/pay.js"
         onload="onGooglePayLoaded()">

@@ -40,13 +40,17 @@
                     <button  class="add-to-cart">Checkout</button>
             </a>
         </div>
-        <div id ="payment"></div>
+        <div class="google-btn">
+            <div id ="payment"></div>
+        <div<
     @endif
 </div>
 @endsection
 
 @section('scripts')
+    <script>
+        const paymentprice = String({{ $total }});
+    </script>
     <script src  = "{{ asset('pay.js')}}"> 
-        // const paymentprice = "$total";
     </script>
 @endsection
