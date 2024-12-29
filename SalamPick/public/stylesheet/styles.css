@@ -868,3 +868,107 @@ h2{
         }
     }
 }
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .container {
+        height: auto; /* Adjust height for smaller screens */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Slightly smaller font size */
+        padding: 1rem 0;
+    }
+
+    .descr {
+        max-width: 90%; /* Reduce width for smaller devices */
+        padding: 10px;
+    }
+
+    .form-group {
+        width: 90%; /* Use more width for forms */
+        padding: 15px;
+    }
+
+    #dob, #text, #submit {
+        width: 90%; /* Full width for inputs */
+    }
+
+    .footer {
+        width: 90%; /* Footer adapts to screen */
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navbar items */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack links */
+        align-items: flex-start;
+    }
+
+    .products {
+        flex-direction: column; /* Stack product items */
+        gap: 10px; /* Smaller gap for stacking */
+        padding: 0 5px;
+    }
+
+    .product {
+        width: 100%; /* Full width for product cards */
+    }
+
+    .product-container {
+        flex-direction: column; /* Stack containers */
+        gap: 20px;
+    }
+
+    .image-container, .product-info {
+        width: 100%; /* Full width for elements */
+    }
+
+    .color {
+        flex-direction: column; /* Stack colors */
+        margin-top: 10px;
+    }
+
+    .buyer-info {
+        width: 100%; /* Full width for buyer info */
+    }
+
+    .fas-container {
+        width: 100%; /* Adjust container width */
+        padding: 0 10px;
+    }
+
+    .intro {
+        font-size: 0.9rem; /* Reduce font size for smaller screens */
+    }
+
+    .dropdown-menu {
+        width: 90%; /* Adapt dropdown menu width */
+        margin: 0 auto;
+    }
+
+    .card-img-top {
+        max-height: 150px; /* Reduce image height */
+    }
+
+    .video-container {
+        margin-bottom: 50vh; /* Adjust margin for video */
+    }
+
+    .add-to-cart, .add-cart {
+        padding: 10px 20px; /* Reduce padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    #searchbox {
+        width: 90%; /* Full width for search box */
+    }
+
+    .btn-buy {
+        flex-direction: column; /* Stack buttons */
+    }
+}
