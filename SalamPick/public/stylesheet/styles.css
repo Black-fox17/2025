@@ -762,6 +762,7 @@ h2{
     margin-left: auto;
     margin-right: auto;
 }
+<<<<<<< HEAD
 .fas-img-container {
     max-width: 1200px;
     padding: 40px auto;
@@ -789,6 +790,8 @@ h2{
     height: 50%;
     object-fit: cover;
 }
+=======
+>>>>>>> 5333a6c9bb15b6a10dcf86f501aa6cba74ba61b4
 /* Responsive design */
 @media (max-width: 600px) {
     .payment-container {
