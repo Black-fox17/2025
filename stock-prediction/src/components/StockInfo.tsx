@@ -17,11 +17,13 @@ export function StockInfo({ metadata }: StockInfoProps) {
           <p className="text-gray-600">{metadata.companyName}</p>
         </div>
         <div className="text-right">
-          <div className="text-3xl font-bold">${metadata.currentPrice.toFixed(2)}</div>
+          <div className="text-3xl font-bold">
+            ${metadata.currentPrice?.toFixed(2) || '0.00'}
+          </div>
           <div className={`flex items-center justify-end ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
             {isPositive ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
             <span className="ml-1">
-              {isPositive ? '+' : ''}{metadata.change.toFixed(2)} ({metadata.changePercent.toFixed(2)}%)
+              {isPositive ? '+' : ''}{metadata.change?.toFixed(2) || '0.00'} ({metadata.changePercent?.toFixed(2) || '0.00'}%)
             </span>
           </div>
         </div>
