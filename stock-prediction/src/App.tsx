@@ -26,6 +26,7 @@ const mockMetadata: StockMetadata = {
   changePercent: 1.53,
 };
 
+
 function App() {
   const [selectedStock, setSelectedStock] = useState('TSLA');
 
