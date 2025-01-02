@@ -8,7 +8,9 @@ function Navbar(){
                     <a href = '/' className='text-neutral-400 fon-bold text-xl hover:text-white transition duration-300'>
                         Abdulsalam
                     </a>
-                    
+                    <button >
+                        <img src= '/assets/menu.svg' alt='toggle' className='w-6 h-6' />
+                    </button>
                 </div>
             </div>
         </header>
