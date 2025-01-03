@@ -1,6 +1,9 @@
 import React from 'react';
-import {Canvas,useFrame} from '@react-three/fiber';
-
+import { Suspense } from 'react';
+import {Canvas} from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
+import Room from '../components/Room';
+import CanvasLoader from '../components/CanvasLoader';
 
 
 const Hero = () => {
@@ -14,6 +17,12 @@ const Hero = () => {
             </div>
             <div className="w-full h-full absolute inset-0">
                 <Canvas className="w-full h-full">
+                  <Suspense fallback={<CanvasLoader />}>
+                    <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+                    <Room scale = {0.05} position = {[0,0,0]} rotation = {[0,0,0]}/>
+                    <ambientLight intensity={1} />
+                    <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                  </Suspense>
                 </Canvas>
             </div>
         </section>
