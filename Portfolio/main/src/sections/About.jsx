@@ -1,16 +1,37 @@
 import React from 'react';
-
+import Globe from 'react-globe.gl';
 function About() {
     return (
-        <section id="about" className="px-5 py-20 bg-neutral-800 text-neutral-100">
-        <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col items-center">
-            <h2 className="text-3xl font-bold">About Me</h2>
-            <p className="mt-5 text-lg">
-                I am a full-stack developer with a passion for building beautiful and functional user interfaces.
-            </p>
+        <section className="c-space my-20" id="about">
+            <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
+                <div className="col-span-1 xl:row-span-3">
+                    <div className="grid-container">
+                        <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
+
+                        <div>
+                        <p className="grid-headtext">Hi, I’m Adrian Hajdin</p>
+                        <p className="grid-subtext">
+                            With 12 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
+                            and responsive websites.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-span-1 xl:row-span-3">
+                <div className="grid-container">
+                    <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
+
+                    <div>
+                    <p className="grid-headtext">Tech Stack</p>
+                    <p className="grid-subtext">
+                        I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable
+                        applications
+                    </p>
+                    </div>
+                </div>
+                </div>
+                <Globe />
             </div>
-        </div>
         </section>
     );
 };
