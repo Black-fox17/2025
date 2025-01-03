@@ -1,4 +1,7 @@
 import React from 'react';
+import {Canvas,useFrame} from '@react-three/fiber';
+
+
 
 const Hero = () => {
     return (
@@ -8,6 +11,10 @@ const Hero = () => {
                 Hi, I am Oluwaseun <span className="waving-hand">👋</span>
                 </p>
                 <p className="hero_tag text-gray_gradient">Building Products & Brands</p>
+            </div>
+            <div className="w-full h-full absolute inset-0">
+                <Canvas className="w-full h-full">
+                </Canvas>
             </div>
         </section>
     );
