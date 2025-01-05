@@ -21,17 +21,20 @@ const Project = () => {
       useGSAP(() => {
         gsap.fromTo(`.animatedText`, { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.2, ease: 'power2.inOut' });
       }, [currentProjectindex]);
-    
+      
+    useGSAP(() => {
+        gsap.fromTo('.video-animate', { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 1, ease: 'power2.inOut' });
+    }, [currentProjectindex]);
       
     const currentProject = myProjects[currentProjectindex];
     return (
         <section className="c-space my-20">
             <p className="head-text">My Selected Work</p>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-                <div className='video-animate'>
-                    <video src = {currentProject.texture} autoPlay loop muted playsInline/>
+                <div className='relative grid'>
+                    <video src = {currentProject.texture} autoPlay loop muted playsInline className='video-animate'/>
 
-                    <div className="flex justify-between items-center mt-7">
+                    <div className="flex justify-between items-center mt-5">
                         <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
                             <img src="/assets/left-arrow.png" alt="left arrow" />
                         </button>

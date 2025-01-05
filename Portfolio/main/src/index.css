@@ -12,7 +12,12 @@ body {
   background: #010103;
   font-family: 'General Sans', sans-serif;
 }
-
+.video-animate {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; /* Ensures it respects block flow */
+}
 @layer utilities {
   .c-space {
     @apply sm:px-10 px-5;
