@@ -11,19 +11,19 @@ import HeroCamera from '../components/HeroCamera.jsx';
 import GameRoom from '../components/GameRoom.jsx';
 import Button from '../components/Button.jsx';
 const Hero = () => {
-    const x = useControls('GameRoom',           
-      {scalex:{value:0.07, min:0.01, max:0.1}, 
-      scaley:{value:0.07, min:0.01, max:0.1},
-      scalez:{value:0.07, min:0.01, max:0.1},
-      positionx:{value:0, min:-10, max:10},
-      positiony:{value:0, min:-10, max:10},
-      positionz:{value:0, min:-10, max:10},
-      rotationx:{value:0, min:0, max:360},
-      rotationy:{value:280, min:0, max:360},
-      rotationz:{value:0, min:0, max:360},
+    // const x = useControls('GameRoom',           
+    //   {scalex:{value:0.07, min:0.01, max:0.1}, 
+    //   scaley:{value:0.07, min:0.01, max:0.1},
+    //   scalez:{value:0.07, min:0.01, max:0.1},
+    //   positionx:{value:0, min:-10, max:10},
+    //   positiony:{value:0, min:-10, max:10},
+    //   positionz:{value:0, min:-10, max:10},
+    //   rotationx:{value:0, min:0, max:360},
+    //   rotationy:{value:280, min:0, max:360},
+    //   rotationz:{value:0, min:0, max:360},
 
-      }
-    );
+    //   }
+    // );
     const issmall = useMediaQuery({maxWidth: 440});
     const ismobile = useMediaQuery({maxWidth: 768});
     const istablet = useMediaQuery({minwidth:768,maxWidth: 1024});
