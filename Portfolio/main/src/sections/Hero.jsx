@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import {Canvas} from '@react-three/fiber';
 import { Leva, useControls} from 'leva';
 import { PerspectiveCamera } from '@react-three/drei';
-import Room from '../components/Room';
 import CanvasLoader from '../components/CanvasLoader';
 import { useMediaQuery } from 'react-responsive';
 import {calculateSizes} from '../constants/index.ts';

@@ -61,6 +61,85 @@ export const navLinks = [
         'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
     },
   ];
+  export const skills = [
+    {
+      name: "PyTorch",
+      img: "assets/pytorch.png"
+    },
+    {
+      name: "TensorFlow",
+      img: "assets/tensorflow.png"
+    },
+    {
+      name: "Python",
+      img: "assets/python.png"
+    },
+    {
+      name: "OpenCV",
+      img: "assets/opencv.png"
+    },
+    {
+      name: "Django",
+      img: "assets/django.png"
+    },
+    {
+      name: "FastAPI",
+      img: "assets/fastapi.png"
+    },
+    {
+      name: "ReactJS",
+      img: "assets/react.svg"
+    },
+    {
+      name: "Docker",
+      img: "assets/docker.png"
+    },
+    {
+      name: "Java",
+      img: "assets/java.png"
+    },
+    {
+      name: "PostgreSQL",
+      img: "assets/sql.png"
+    },
+    {
+      name: "GitHub",
+      img: "assets/github.png"
+    },
+    {
+      name: "Data Analysis",
+      img: "assets/data_analysis.png"
+    },
+    {
+      name: "LangChain",
+      img: "assets/langchain.png"
+    },
+    {
+      name: "Kubernetes",
+      img: "assets/kubernetes.png"
+    },
+    {
+      name: "Machine Learning",
+      img: "assets/machine_learning.png"
+    },
+    {
+      name: "Artificial Intelligence",
+      img: "assets/artificial_intelligence.png"
+    },
+    {
+      name: "Scikit-learn",
+      img: "assets/scikit-learn.png"
+    },
+    {
+      name: "Numpy",
+      img: "assets/numpy.png"
+    },
+    {
+      name: "Pandas",
+      img: "assets/pandas.png"
+    },
+];
+
   
   export const myProjects = [
     {
