@@ -77,6 +77,14 @@ const Project = () => {
                     <p>Check Live Site</p>
                     <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
                     </a>
+
+                    <a 
+                    className='flex items-center gap-2 cursor-pointer text-white-600'
+                    href = {currentProject.github ? currentProject.github : "https://github.com/Black-fox17"}
+                    target='_blank'>
+                        <p>Github</p>
+                        <img src= "/assets/github.svg" alt="github" className='w-4 h-4 '/>
+                    </a>
                 </div>
         
                 
