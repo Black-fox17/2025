@@ -5,7 +5,6 @@ import emailjs from '@emailjs/browser'
 const Contact = () =>{
     const formRef = useRef();
 
-  const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -19,8 +18,8 @@ const Contact = () =>{
     setLoading(true);
     try{
         await emailjs.send(
-            service_fkihp8g,
-            template_591b1z8,
+            'service_fkihp8g',
+            'template_vau5bo8',
             {
               from_name: form.name,
               to_name: 'Ayeleru Abdulsalam Oluwaseun',
@@ -28,15 +27,19 @@ const Contact = () =>{
               to_email: 'ayeleru1234@gmail.com',
               message: form.message,
             },
-            o_G7BX0BQQcXiNon4,
+            'o_G7BX0BQQcXiNon4',
           );
           setLoading(false);
           alert("Message sent succesfully");
+        
     }catch(error){
         setLoading(false);
         console.log(error);
         alert("Message Sent Failed");
     }
+    setForm(
+        { name: '', email: '', message: '' }
+    )
   };
 
   return (
@@ -48,7 +51,7 @@ const Contact = () =>{
         <div className="contact-container">
           <h3 className="head-text">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
-            Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
+            Whether you’re looking to build a new AI powered website, improve your existing platform, or bring a unique project to
             life, I’m here to help.
           </p>
 
@@ -88,7 +91,7 @@ const Contact = () =>{
                 required
                 rows={5}
                 className="field-input"
-                placeholder="Share your thoughts or inquiries..."
+                placeholder="Hey Abdulsalam i have a work for you..."
               />
             </label>
 
