@@ -72,7 +72,7 @@ export const navLinks = [
     },
     {
       name: "Backend",
-      img: "assets/logo/fastapi.png"
+      img: "assets/logo/fastapi.svg"
     },
     {
       name: "ReactJS",
