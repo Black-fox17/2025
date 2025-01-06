@@ -64,27 +64,15 @@ export const navLinks = [
   export const skills = [
     {
       name: "PyTorch",
-      img: "assets/pytorch.png"
+      img: "assets/logo/pytorch.svg"
     },
     {
-      name: "TensorFlow",
-      img: "assets/tensorflow.png"
+      name: "Computer Vision",
+      img: "assets/logo/vision.svg"
     },
     {
-      name: "Python",
-      img: "assets/python.png"
-    },
-    {
-      name: "OpenCV",
-      img: "assets/opencv.png"
-    },
-    {
-      name: "Django",
-      img: "assets/django.png"
-    },
-    {
-      name: "FastAPI",
-      img: "assets/fastapi.png"
+      name: "Backend",
+      img: "assets/logo/fastapi.png"
     },
     {
       name: "ReactJS",
@@ -92,15 +80,15 @@ export const navLinks = [
     },
     {
       name: "Docker",
-      img: "assets/docker.png"
+      img: "assets/logo/docker.svg"
     },
     {
       name: "Java",
-      img: "assets/java.png"
+      img: "assets/logo/java.svg"
     },
     {
-      name: "PostgreSQL",
-      img: "assets/sql.png"
+      name: "Laravel and Database",
+      img: "assets/logo/laravel.svg"
     },
     {
       name: "GitHub",
@@ -108,35 +96,11 @@ export const navLinks = [
     },
     {
       name: "Data Analysis",
-      img: "assets/data_analysis.png"
+      img: "assets/logo/analysis.svg"
     },
     {
-      name: "LangChain",
-      img: "assets/langchain.png"
-    },
-    {
-      name: "Kubernetes",
-      img: "assets/kubernetes.png"
-    },
-    {
-      name: "Machine Learning",
-      img: "assets/machine_learning.png"
-    },
-    {
-      name: "Artificial Intelligence",
-      img: "assets/artificial_intelligence.png"
-    },
-    {
-      name: "Scikit-learn",
-      img: "assets/scikit-learn.png"
-    },
-    {
-      name: "Numpy",
-      img: "assets/numpy.png"
-    },
-    {
-      name: "Pandas",
-      img: "assets/pandas.png"
+      name: "AI Agents",
+      img: "assets/logo/langchain.svg"
     },
 ];
 
