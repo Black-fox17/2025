@@ -204,7 +204,7 @@ export const navLinks = [
       pos: 'Software Engineer & AI Developer',
       duration: '2022 - Present',
       title: "As a self-employed professional, I have been working on freelance projects as a Software Engineer and AI Developer. I specialize in integrating AI agents to solve real-world problems and building complex AI applications.",
-      icon: '/assets/freelance.svg',
+      icon: '/assets/logo/upwork.svg',
       animation: 'idea',
     },
     {
@@ -213,7 +213,7 @@ export const navLinks = [
       pos: 'Tech Role (Details Pending)',
       duration: 'Starting Soon',
       title: "Excited to embark on an internship with HNG, where I'll be taking on technical roles yet to be discussed. This opportunity will allow me to contribute to impactful projects and further hone my skills.",
-      icon: '/assets/hng.svg',
+      icon: '/assets/logo/hng.svg',
       animation: 'rocket',
     },
   ];
