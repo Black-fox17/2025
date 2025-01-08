@@ -4,7 +4,7 @@ from extract import get_data
 import json
 
 app = FastAPI()
-
+  
 origins = ['http://localhost:3000']
 app.add_middleware(
     CORSMiddleware,
