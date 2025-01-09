@@ -1,6 +1,7 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from extract import get_data
+from Model.script import get_predictions
+from pydantic import BaseModel
 import json
 
 app = FastAPI()
@@ -14,6 +15,14 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
+# class StockInput(BaseModel):
+#     ticker:str
+# @app.post("/api/predict")
+# async def get_future_stocks(data:StockInput):
+#     symbol = data.ticker
+#     prices = get_predictions(symbol)
+#     return {"result":prices}
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -23,7 +32,7 @@ async def websocket_endpoint(websocket: WebSocket):
             data = await websocket.receive_text()
             message = json.loads(data)
             ticker = message.get("ticker")
-            data = get_data(ticker)
+            data = get_predictions(ticker)
 
             await websocket.send_text(json.dumps(data))
             

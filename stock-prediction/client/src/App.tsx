@@ -6,10 +6,12 @@ import { StockInfo } from './components/StockInfo';
 import { StockData, PredictionData, StockMetadata } from './types/stock';
 import { websocketService } from './services/websocketService';
 import companiesData from './data/companies.json';
+import { Json } from 'langchain/tools';
 
 function App() {
   const [selectedStock, setSelectedStock] = useState('AAPL');
   const [historicalData, setHistoricalData] = useState<StockData[]>([]);
+  const [predData,setPredData] = useState([0.00]);
   const [metadata, setMetadata] = useState<StockMetadata>({
     symbol: 'AAPL',
     companyName: 'Apple Inc.',
@@ -19,10 +21,10 @@ function App() {
   });
 
   // Temporary mock prediction data
-    const mockPredictionData: PredictionData[] = Array.from({ length: 8 }, (_, i) => ({
-    timestamp: Date.now() + i * 86400000, // Daily intervals
-    predictedPrice: 240 + Math.random() * 60, // Random value between 240 and 300
-    confidence: 0.7 + Math.random() * 0.2,
+  const PredictionData = predData.map((price, i) => ({
+    timestamp: Date.now() + i * 86400000, // Increment timestamps for predictions
+    predictedPrice: price,
+    confidence: 0.7 + Math.random() * 0.2, // Mock confidence values
   }));
 
   const handleStockSelect = (symbol: string) => {
@@ -31,12 +33,13 @@ function App() {
 
   useEffect(() => {
     websocketService.connect(selectedStock, (newDataArray) => {
-      setHistoricalData(newDataArray);
-        
+      setHistoricalData(newDataArray.data);
+      setPredData(newDataArray.prediction)
+      console.log("Done")
       // Update metadata using the latest price
       if (newDataArray.length > 0) {
-        const currentPrice = newDataArray[0].price;
-        const previousPrice = newDataArray[1]?.price || currentPrice;
+        const currentPrice = (newDataArray.data)[0].price;
+        const previousPrice = (newDataArray.data)[1]?.price || currentPrice;
         const change = currentPrice - previousPrice;
         const changePercent = (change / previousPrice) * (100);
         const companyName = companiesData[selectedStock]?.name || 'Unknown';
@@ -75,13 +78,13 @@ function App() {
             <StockInfo metadata={metadata} />
             <StockChart 
               historicalData={historicalData}
-              predictionData={mockPredictionData}
+              predictionData={PredictionData}
             />
           </div>
           
           <div className="lg:col-span-1">
             <PredictionCard
-              latestPrediction={mockPredictionData[0]}
+              latestPrediction={predData[0]}
               currentPrice={metadata.currentPrice}
             />
           </div>

@@ -7,14 +7,14 @@ def get_soup(url):
   soup = BeautifulSoup(response.text,"html.parser")
   return soup
 
-def get_data(ticker:str):
+def get_data(ticker:str,period = 24):
     url = f'https://stockanalysis.com/stocks/{ticker.lower()}/history/'
     soup = get_soup(url)
     rows = soup.find_all('tr', class_="svelte-2d4szo")
 
     date_format = "%b %d, %Y"
     extracted_data = []
-    for row in rows[:24]:
+    for row in rows[:period]:   
         # Extract all <td> values from each row
         cells = [cell.get_text(strip=True) for cell in row.find_all('td')]
         if cells:  # Ensure row has valid data

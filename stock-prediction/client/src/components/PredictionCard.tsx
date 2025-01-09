@@ -3,12 +3,12 @@ import { TrendingUp, TrendingDown, BarChart2 } from 'lucide-react';
 import { PredictionData } from '../types/stock';
 
 interface PredictionCardProps {
-  latestPrediction: PredictionData;
+  latestPrediction: number;
   currentPrice: number;
 }
 
 export function PredictionCard({ latestPrediction, currentPrice }: PredictionCardProps) {
-  const predictionDiff = latestPrediction.predictedPrice - currentPrice;
+  const predictionDiff = latestPrediction- currentPrice;
   const predictionPercent = (predictionDiff / currentPrice) * 100;
   const isPositive = predictionDiff > 0;
 
@@ -23,7 +23,7 @@ export function PredictionCard({ latestPrediction, currentPrice }: PredictionCar
         <div className="flex justify-between items-center">
           <span className="text-gray-600">Predicted Price</span>
           <span className="text-xl font-bold">
-            ${latestPrediction.predictedPrice.toFixed(2)}
+            ${latestPrediction.toFixed(2)}
           </span>
         </div>
         
