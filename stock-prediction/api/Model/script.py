@@ -29,7 +29,7 @@ def get_predictions(ticker):
     scaled_data = scaler.transform(data_values)
     test_data = scaled_data[-61:-1,0]
     predictions = []
-    for _ in range(100):
+    for _ in range(5):
         result = get_pred([test_data])
         predictions.append(float(scaler.inverse_transform(result)))
         test_data = np.append(test_data,result[0])[-60:]

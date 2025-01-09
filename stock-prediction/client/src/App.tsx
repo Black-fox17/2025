@@ -4,6 +4,7 @@ import { StockSelector } from './components/StockSelector';
 import { PredictionCard } from './components/PredictionCard';
 import { StockInfo } from './components/StockInfo';
 import { StockData, PredictionData, StockMetadata } from './types/stock';
+import { Insights } from './components/Insights';
 import { websocketService } from './services/websocketService';
 import companiesData from './data/companies.json';
 import { Json } from 'langchain/tools';
@@ -37,10 +38,11 @@ function App() {
       setPredData(newDataArray.prediction)
       console.log("Done")
       // Update metadata using the latest price
-      if (newDataArray.length > 0) {
+      if (newDataArray.data.length > 0) {
         const currentPrice = (newDataArray.data)[0].price;
         const previousPrice = (newDataArray.data)[1]?.price || currentPrice;
         const change = currentPrice - previousPrice;
+        console.log(change);
         const changePercent = (change / previousPrice) * (100);
         const companyName = companiesData[selectedStock]?.name || 'Unknown';
 
@@ -80,6 +82,12 @@ function App() {
               historicalData={historicalData}
               predictionData={PredictionData}
             />
+            <Insights
+              stockSymbol={metadata.symbol}
+              companyName={metadata.companyName}
+              currentPrice={metadata.currentPrice}
+              predictedPrice={predData ? predData[0] || metadata.currentPrice : metadata.currentPrice}
+              />
           </div>
           
           <div className="lg:col-span-1">
